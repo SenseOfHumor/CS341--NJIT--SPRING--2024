@@ -1,4 +1,4 @@
-inp_string = "aba(4.+(.8-9.))/2.)*3.4+(5.21/34.2aba"
+inp_string = "abba.0*(32.922+.7-*9.))abba"
 
 ## creating the function for PDA
 ##print(f"Present state: {state} \nCurrent input symbol under R-Head {i} \nStack top: {stack[-1]} \nSymbol popped from the stack: {stack.pop()} \nSymbol pushed into the stack: {push} \nNext state: {state} \n")
@@ -23,7 +23,7 @@ def isPDA(string):
         ## still for state q1
         elif state == 'q1' and i == 'b':
             stack.append(i)
-            state = 'q2'
+            state = 'q1'
             print(f"{i},epsilon -> {i}")
             #print(stack)
 
@@ -116,9 +116,9 @@ def isPDA(string):
             print("Accepted")
             break
         else:
-            print("Rejected")
+            print(f"The string is rejected at {state} state and input symbol {i}")
             break
-
+        
 
     return state and stack
 
