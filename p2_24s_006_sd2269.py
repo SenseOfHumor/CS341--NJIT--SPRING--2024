@@ -64,6 +64,10 @@ def isPDA269(string):
             else:
                 print("Stack Top: epsilon")
             #print(stack)
+                
+        elif state == 'q2' and i == ')':
+            state = 'q9'
+            print(f"q2, {i}, epsilon -> {state}, epsilon\n")
 
         ## for state q2
         elif state == 'q2' and i == '.':
@@ -95,6 +99,14 @@ def isPDA269(string):
         #     print("string is not acceptable because such transition is not possible")
         #     break
         elif state == 'q2' and i.isalpha():
+            state = 'q9'
+            print(f"q2, {i}, epsilon -> {state}, epsilon\n")
+
+        elif state == 'q2' and i == '+':
+            state = 'q9'
+            print(f"q2, {i}, epsilon -> {state}, epsilon\n")
+
+        elif state == 'q2' and i == '*':
             state = 'q9'
             print(f"q2, {i}, epsilon -> {state}, epsilon\n")
 
@@ -145,6 +157,10 @@ def isPDA269(string):
                 print(f"Stack Top: {stack[-1]}\n\n")
             else:
                 print("Stack Top: epsilon")
+
+        elif state == 'q4' and i == ')':
+            state = 'q9'
+            print(f"q4, {i}, epsilon -> {state}, epsilon\n")
 
         ## for state q5
         elif state == 'q5' and i.isnumeric():
@@ -201,6 +217,10 @@ def isPDA269(string):
             else:
                 print("Stack Top: epsilon")
 
+        elif state == 'q5' and i == '.':    
+            state = 'q9'
+            print(f"q5, {i}, epsilon -> {state}, epsilon\n")
+
         ## for state q6
         elif state == 'q6' and i == '+' or i == '-' or i == '*' or i == '/':
             # print(f"Current input symbol under R-Head: {i}")
@@ -211,6 +231,8 @@ def isPDA269(string):
                 print(f"Stack Top: {stack[-1]}\n\n")
             else:
                 print("Stack Top: epsilon")
+
+
 
         ## for state q6
         elif state == 'q6' and i == ')' and stack[-1] == '(':
@@ -252,6 +274,16 @@ def isPDA269(string):
                 print(f"Stack Top: {stack[-1]}\n\n")
             else:
                 print("Stack Top: epsilon")
+
+        elif state == 'q6' and i.isnumeric():
+            print(f"q6, {i}, epsilon -> {state}, epsilon\n")
+            state = 'q9'
+
+        elif state == 'q6' and i == '.':
+            print(f"q6, {i}, epsilon -> {state}, epsilon\n")
+            state = 'q9'
+
+        
 
         ## for state q7
         elif state == 'q7' and i == 'b' and stack[-1] == 'b':
@@ -323,13 +355,13 @@ def isPDA269(string):
         elif not string and stack and state != 'q8':
             reason = "the stack is not empty"
         # elif i == 'a' and stack[-1] != 'a':
-        #     reason = f"the stack top does not match with the input symbol: {i}"
-        # elif i == ')' and stack[-1] != '(':
-        #     reason = f"the stack top does not match with the input symbol: {i}"
-        # elif i == 'b' and stack[-1] != 'b':
-        #     reason = f"the stack top does not match with the input symbol: {i}"
-        # elif i == 'a' and stack[-1] != 'z0':
-        #     reason = f"the stack top does not match with the input symbol: {i}"
+        #     reason = f"the stack top: {stack[-1]} does not match with the input symbol: {i}"
+        elif i == ')' and stack[-1] != '(':
+            reason = f"the stack top: {stack[-1]} does not match with the input symbol: {i}"
+        elif i == 'b' and stack[-1] != 'b':
+            reason = f"the stack top: {stack[-1]} does not match with the input symbol: {i}"
+        elif i == 'a' and stack[-1] == 'b':
+            reason = f"the stack top: {stack[-1]} does not match with the input symbol: {i}"
         elif not string and stack:
             reason = "the stack is not empty"
         # elif state != 'q8':
@@ -342,7 +374,7 @@ def isPDA269(string):
         
 
         print("the machine crashed")
-        return f"The string {string} is not acceptable by the given PDA because: {reason} \n" #state and input symbol {i}\n {i} , {state}, {i}, {stack[-1]} -> {state}, {i}\n
+        return f"The string {string} is not acceptable by the given PDA because {reason} \n" #state and input symbol {i}\n {i} , {state}, {i}, {stack[-1]} -> {state}, {i}\n
 
     elif not stack:
         return f"\nThe string is accepted.\n"
