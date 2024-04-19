@@ -1,0 +1,55 @@
+
+Project 2 for CS 341
+Section number: 006
+Semester: Spring 2024
+Written by: Swapnil Deb, sd2269
+Instructor: Arashdeep Kaur, ak3257@njit.edu
+Number of strings to test: 15
+String 1: abbba43.51386abbba
+Result: 
+The string is accepted.
+
+String 2: aa.78+27.-3.013/837.842+aa
+Result: The string aa.78+27.-3.013/837.842+aa is not acceptable by the given PDA because such a transition is not possible 
+
+String 3: aa48622.+.41*1.2/00.1/521.23-.9+.53/7.aa
+Result: 
+The string is accepted.
+
+String 4: abba382.89*14.2aba
+Result: The string abba382.89*14.2aba is not acceptable by the given PDA because the stack top: b does not match with the input symbol: a 
+
+String 5: aba4.91-.*17.9aba
+Result: The string aba4.91-.*17.9aba is not acceptable by the given PDA because such a transition is not possible 
+
+String 6: aa44.88.6+3.208aa
+Result: The string aa44.88.6+3.208aa is not acceptable by the given PDA because such a transition is not possible 
+
+String 7: aba(1.2+(3.5-.9)/19).3aba
+Result: The string aba(1.2+(3.5-.9)/19).3aba is not acceptable by the given PDA because such a transition is not possible 
+
+String 8: abba(.4)64abba
+Result: The string abba(.4)64abba is not acceptable by the given PDA because such a transition is not possible 
+
+String 9: aba((824.23+(9.22-00.0)*21.2))+((.2/7.))abba
+Result: The string aba((824.23+(9.22-00.0)*21.2))+((.2/7.))abba is not acceptable by the given PDA because the stack is not empty 
+
+String 10: aba(())aba
+Result: The string aba(())aba is not acceptable by the given PDA because such a transition is not possible 
+
+String 11: abba((14.252+(692.211*(.39+492.1))/49.235)abba
+Result: The string abba((14.252+(692.211*(.39+492.1))/49.235)abba is not acceptable by the given PDA because the stack is not empty 
+
+String 12: abba+6.5abba
+Result: The string abba+6.5abba is not acceptable by the given PDA because such a transition is not possible 
+
+String 13: aa26.0*(.87/((4.+.2)/(23.1)-2.9)+6.)/(((823.*.333-57.*8.0)/.33))+.76aa
+Result: 
+The string is accepted.
+
+String 14: abba.0*(32.922+.7-*9.))abba
+Result: The string abba.0*(32.922+.7-*9.))abba is not acceptable by the given PDA because such a transition is not possible 
+
+String 15: aba(4.+(.8-9.))/2.)*3.4+(5.21/34.2aba
+Result: The string aba(4.+(.8-9.))/2.)*3.4+(5.21/34.2aba is not acceptable by the given PDA because the stack top: a does not match with the input symbol: ) 
+

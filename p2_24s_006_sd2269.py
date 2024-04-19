@@ -380,14 +380,20 @@ def isPDA269(string):
         return f"\nThe string is accepted.\n"
 
 ## Program specitications
-print("\nProject 2 for CS 341")
-print("Section number: 006")
-print("Semester: Spring 2024")
-print("Written by: Swapnil Deb, sd2269")
-print("Instructor: Arashdeep Kaur, ak3257@njit.edu")
+with open('output.txt', 'w') as f:
+    f.write("\nProject 2 for CS 341\n")
+    f.write("Section number: 006\n")
+    f.write("Semester: Spring 2024\n")
+    f.write("Written by: Swapnil Deb, sd2269\n")
+    f.write("Instructor: Arashdeep Kaur, ak3257@njit.edu\n")
 
-## asking user inputs
-index = int(input("Enter the number of strings you want to test (integer): "))
-for i in range(index):
-    inp_string = input(f"Enter string {i+1} of {index}: ")
-    print(isPDA269(inp_string))
+    ## asking user inputs
+    index = int(input("Enter the number of strings you want to test (integer): "))
+    f.write(f"Number of strings to test: {index}\n")
+    for i in range(index):
+        print("_"*50)
+        inp_string = input(f"Enter string {i+1} of {index}: ")
+        f.write(f"String {i+1}: {inp_string}\n")
+        result = isPDA269(inp_string)
+        f.write(f"Result: {result}\n")
+        print(result)
