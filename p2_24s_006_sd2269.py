@@ -1,5 +1,12 @@
 
-
+"""
+Swapnil Deb
+sd2269
+CS 341
+Project 2
+Section 006
+Spring 2024
+"""
 ## creating the function for PDA
 ##print(f"Present state: {state} \nCurrent input symbol under R-Head {i} \nStack top: {stack[-1]} \nSymbol popped from the stack: {stack.pop()} \nSymbol pushed into the stack: {push} \nNext state: {state} \n")
 
@@ -11,7 +18,7 @@ def isPDA269(string):
 
     print("__________________________________________________________")
     print(f"\nThe string under processing is: {string}")
-    print("The format is as: Current State, Current Input Symbol, Stack Top -> Next State, Pushed Symbol\n")
+    print("The format is as: Current State, Current Input Symbol, Popped Symbol if any -> Next State, Pushed Symbol if any\n")
     print("Starting State: q0")
 
     for i in string:
@@ -71,8 +78,6 @@ def isPDA269(string):
 
         ## for state q2
         elif state == 'q2' and i == '.':
-            # print(f"Current input symbol under R-Head: {i}")
-            # print(f"Current state: {state}\n")
             state = 'q3'
             print(f"q2, {i}, epsilon -> {state}, epsilon\n")
             if stack:
@@ -93,11 +98,6 @@ def isPDA269(string):
             else:
                 print("Stack Top: epsilon")
 
-        ## error handling for state q2
-        # elif state == 'q2' and i == 'b' or i == 'a':
-        #     print(f"q2, {i}, epsilon -> {state}, epsilon\n")
-        #     print("string is not acceptable because such transition is not possible")
-        #     break
         elif state == 'q2' and i.isalpha():
             state = 'q9'
             print(f"q2, {i}, epsilon -> {state}, epsilon\n")
@@ -173,7 +173,7 @@ def isPDA269(string):
             else:
                 print("Stack Top: epsilon")
 
-        ## for state q5
+        ## for state q5 and i is '.'
         elif state == 'q5' and i == ')' and stack[-1] == '(':
             # print(f"Current input symbol under R-Head: {i}")
             # print(f"Current state: {state}\n")
@@ -369,6 +369,7 @@ def isPDA269(string):
         elif state == 'q2' and not string:
             reason = "the string ended before reaching the final state q8"
         elif state == 'q9':
+            print("The string entered a trap state")
             reason = "such a transition is not possible"
         
         
@@ -380,6 +381,10 @@ def isPDA269(string):
         return f"\nThe string is accepted.\n"
 
 ## Program specitications
+    
+    ## the fwrites can be ignored because they are used to print the output to a document.
+    ## the print statements are used to print the output to the console.
+    ## everything is working as expected.
 with open('output.txt', 'w') as f:
     f.write("\nProject 2 for CS 341\n")
     f.write("Section number: 006\n")
